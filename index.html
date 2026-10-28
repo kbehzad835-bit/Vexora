@@ -4,208 +4,446 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#08040f">
-<title>VEXORA | طراحی سایت</title>
+<meta name="theme-color" content="#07020e">
+<title>VEXORA | ایده‌ات رو واقعی کن!</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --purple:#a020ff;
+  --pink:#df75ff;
+  --bg:#06030b;
+  --panel:#10091a;
+  --line:#542078;
+  --muted:#bdb0cb;
+}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:85px}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
 body{
- margin:0;background:#08040f;color:#fff;
- font-family:Tahoma,Arial,sans-serif;
+ margin:0;background:var(--bg);color:#fff;
+ font-family:'Vazirmatn',Tahoma,sans-serif;
+ overflow-x:hidden;
 }
-a{color:inherit}
-header{
- text-align:center;padding:70px 18px 35px;
- background:radial-gradient(ellipse at top,#30104e,#08040f 72%);
+body:before{
+ content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+ background:
+ radial-gradient(ellipse at 15% 15%,#45107835,transparent 35%),
+ radial-gradient(ellipse at 85% 35%,#6b0bb52b,transparent 35%),
+ radial-gradient(ellipse at 50% 90%,#3d087a20,transparent 40%);
 }
-.logo{
- width:100px;height:100px;margin:auto;
- display:grid;place-items:center;border:2px solid #b65cff;
- border-radius:27px;background:linear-gradient(145deg,#39145a,#09040f);
- color:#e4b8ff;font-size:72px;font-weight:900;font-style:italic;
- text-shadow:0 0 20px #bc54ff;
- box-shadow:0 0 35px #8b20df55;
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.wrap{width:min(1200px,92%);margin:auto}
+.neon{color:var(--pink);text-shadow:0 0 22px #a020ff88}
+.topbar{
+ position:sticky;top:0;z-index:50;
+ background:#08040fee;backdrop-filter:blur(18px);
+ border-bottom:1px solid #65239a;
+ box-shadow:0 5px 35px #6c16a51a;
 }
-header h1{font-size:36px;letter-spacing:5px;color:#d9a1ff}
-header p{color:#c8b5d8;line-height:1.9}
-nav{
- position:sticky;top:0;z-index:10;background:#0b0613;
- border-bottom:1px solid #512079;padding:12px 16px;
- display:flex;justify-content:space-between;align-items:center;
+.nav{
+ min-height:72px;display:flex;align-items:center;
+ justify-content:space-between;gap:20px;
 }
-.navbrand{color:#d8a4ff;font-weight:bold}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:2px}
+.brandmark{
+ display:grid;place-items:center;width:43px;height:43px;
+ border:1px solid #c56aff;border-radius:13px;
+ color:#e4b5ff;font-size:32px;font-weight:900;font-style:italic;
+ text-shadow:0 0 14px #bc42ff;
+ background:linear-gradient(145deg,#411266,#09040f);
+ box-shadow:0 0 20px #9d20ff30;
+}
+.brandname{font-size:21px;color:#dcaaff}
+.navlinks{display:flex;gap:22px;align-items:center;font-size:13px}
+.navlinks a{color:#c9bbd7;transition:.2s}
+.navlinks a:hover{color:#e5baff}
 .menu-btn{
- background:#1a0b29;border:1px solid #9846d8;
- color:#fff;padding:11px 17px;border-radius:10px;
- font-size:15px;cursor:pointer
+ display:none;color:white;background:#180b25;
+ border:1px solid #8d38c2;border-radius:10px;padding:10px 15px;
 }
-.menu{
- display:none;position:absolute;top:58px;right:12px;
- width:210px;background:#11091b;border:1px solid #8b35c5;
- border-radius:12px;overflow:hidden;box-shadow:0 8px 25px #000;
+.hero{
+ position:relative;min-height:590px;display:grid;
+ grid-template-columns:1fr 1fr;align-items:center;gap:30px;
+ padding:65px 0 80px;isolation:isolate;
 }
-.menu.open{display:block}
-.menu a{
- display:block;padding:14px;text-decoration:none;
- border-bottom:1px solid #291638
+.hero:before{
+ content:"";position:absolute;inset:0;z-index:-1;
+ background:
+ radial-gradient(ellipse at 25% 45%,#a020ff38,transparent 38%),
+ radial-gradient(ellipse at 55% 80%,#5c10a940,transparent 35%);
 }
-.menu a:hover{background:#35134c;color:#e5baff}
-main{max-width:850px;margin:auto;padding:18px}
-.intro{text-align:center;padding:25px 8px}
-h2{color:#d9a1ff}
-.muted{color:#c9bbd4;line-height:2}
-.card{
- background:linear-gradient(145deg,#170b23,#0d0813);
- border:1px solid #51236f;border-radius:18px;
- padding:22px;margin:18px 0;
+.hero:after{
+ content:"";position:absolute;bottom:20px;left:0;right:0;height:1px;
+ background:linear-gradient(90deg,transparent,#a020ff,transparent);
+}
+.eyebrow{
+ display:inline-flex;align-items:center;gap:8px;
+ color:#d9a0ff;border:1px solid #6f289b;
+ border-radius:30px;padding:8px 14px;font-size:12px;
+ background:#190b27aa;
+}
+.eyebrow:before{content:"";width:7px;height:7px;border-radius:50%;
+ background:#d15cff;box-shadow:0 0 12px #d15cff}
+.hero h1{
+ font-size:clamp(40px,5.6vw,76px);line-height:1.3;
+ margin:22px 0;font-weight:900;letter-spacing:-2px;
+}
+.hero h1 span{
+ display:block;color:#c76aff;
+ text-shadow:0 0 30px #9200ff55;
+}
+.hero p{color:#c7b8d5;line-height:2.2;font-size:15px;max-width:520px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+ display:inline-flex;justify-content:center;align-items:center;gap:9px;
+ padding:13px 21px;border:1px solid #a94cff;border-radius:12px;
+ background:linear-gradient(110deg,#7514d6,#a52cff);
+ color:white;font-size:13px;font-weight:700;
+ box-shadow:0 0 24px #8e17ff32;transition:transform .2s,box-shadow .2s;
+ cursor:pointer;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px #a020ff66}
+.btn.ghost{background:#130a1d;border-color:#49235f;box-shadow:none}
+.hero-art{
+ min-height:390px;position:relative;display:grid;place-items:center;
+ perspective:800px;
+}
+.portal{
+ position:absolute;width:min(360px,80vw);aspect-ratio:1;border-radius:50%;
+ border:2px solid #b344ff;
+ box-shadow:0 0 22px #8c14ff, inset 0 0 35px #8614c755;
+ transform:rotateX(12deg) rotateY(-12deg);
+ animation:portal 7s ease-in-out infinite;
+}
+.portal:before,.portal:after{
+ content:"";position:absolute;inset:17px;border-radius:50%;
+ border:1px dashed #d783ff99;
+}
+.portal:after{inset:42px;border:1px solid #8120d6}
+.emblem{
+ width:200px;height:220px;display:grid;place-items:center;
+ font-size:190px;font-weight:900;font-style:italic;
+ color:#dba0ff;line-height:1;
+ text-shadow:0 0 9px white,0 0 25px #c300ff,0 0 65px #8b00ff;
+ filter:drop-shadow(0 20px 35px #9e16ff55);
+ animation:float 4s ease-in-out infinite;
+}
+.orb{
+ position:absolute;width:12px;height:12px;border-radius:50%;
+ background:#f0b4ff;box-shadow:0 0 25px 7px #a020ff;
+}
+.orb.o1{top:14%;right:16%}.orb.o2{bottom:13%;left:12%;width:7px;height:7px}
+.orb.o3{top:32%;left:7%;width:5px;height:5px}
+.art-caption{
+ position:absolute;bottom:0;right:5%;left:5%;
+ display:flex;justify-content:space-around;gap:10px;
+ padding:16px;background:#10071ad9;border:1px solid #682c8c;
+ border-radius:14px;backdrop-filter:blur(12px);
+}
+.art-caption strong{display:block;color:#e1b5ff;font-size:12px}
+.art-caption span{display:block;color:#a99ab8;font-size:10px;margin-top:5px}
+@keyframes float{50%{transform:translateY(-13px) rotate(-3deg)}}
+@keyframes portal{50%{transform:rotateX(3deg) rotateY(7deg) scale(1.04)}}
+
+.section{padding:65px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:28px}
+.kicker{font-size:11px;color:#bd75f4;letter-spacing:2px}
+.section h2{font-size:clamp(25px,3vw,36px);margin:8px 0}
+.section-head p{color:var(--muted);font-size:12px;margin:0;line-height:2}
+.services{
+ display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;
 }
 .service{
- border:1px solid #45205e;background:#10091a;
- border-radius:14px;padding:18px;margin-top:15px;
+ position:relative;overflow:hidden;padding:22px 16px;
+ min-height:295px;border:1px solid #44205e;border-radius:17px;
+ background:linear-gradient(145deg,#160b24,#0a0710);
+ transition:.25s;
 }
-.service h3{color:#e0b6ff;margin-top:0}
-.price{color:#d7a0ff;font-size:19px;font-weight:bold}
-.btn{
- display:block;text-align:center;text-decoration:none;
- background:linear-gradient(100deg,#6819ad,#a83df0);
- border:1px solid #c47aff;border-radius:11px;
- padding:13px;margin-top:15px;font-weight:bold;
- color:white;
+.service:before{
+ content:"";position:absolute;inset:0;pointer-events:none;
+ background:radial-gradient(circle at 50% 0,#9826ff24,transparent 60%);
 }
-.btn:hover{filter:brightness(1.18)}
-.btn.secondary{background:#190d26}
-.profile-row{display:flex;align-items:center;gap:15px}
-.mini-logo{
- flex-shrink:0;width:65px;height:65px;border:1px solid #a855f7;
- border-radius:17px;display:grid;place-items:center;
- background:#160922;color:#d8a4ff;font-size:44px;
- font-weight:900;font-style:italic;text-shadow:0 0 12px #a855f7;
+.service:hover{transform:translateY(-7px);border-color:#b04bff;box-shadow:0 12px 35px #8b00ff22}
+.service-icon{
+ font-size:39px;color:#d79aff;text-shadow:0 0 23px #9c22ff;
+ margin-bottom:18px;
 }
-.username{direction:ltr;text-align:right;color:#c084fc;margin-top:8px}
-footer{text-align:center;color:#a393b2;padding:25px;line-height:2}
+.service h3{font-size:16px;margin:0 0 10px}
+.service p{font-size:11px;line-height:2;color:#b9a9c8;min-height:48px}
+.price{font-size:13px;color:#e0b1ff;font-weight:800;margin-top:17px}
+.price small{display:block;color:#9986ab;font-size:10px;margin-top:5px}
+.service .btn{width:100%;padding:11px 7px;font-size:11px;margin-top:17px}
+
+.showcase{
+ border:1px solid #56247a;border-radius:23px;padding:25px;
+ background:linear-gradient(135deg,#13081f,#09050e);
+ box-shadow:inset 0 0 50px #8c1aff0a;
+}
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project{
+ border:1px solid #47215f;border-radius:15px;overflow:hidden;
+ background:#0b0711;transition:.25s;
+}
+.project:hover{border-color:#bd63ff;transform:translateY(-5px)}
+.project-art{
+ height:150px;display:grid;place-items:center;overflow:hidden;
+ position:relative;background:
+ radial-gradient(ellipse at 50% 50%,#8e21ce55,transparent 65%),
+ linear-gradient(140deg,#211039,#08050d);
+}
+.project-art:before{
+ content:"";position:absolute;width:180px;height:180px;
+ border:1px solid #a344dc77;transform:rotate(45deg);
+ box-shadow:0 0 25px #8b20ff22;
+}
+.project-art span{
+ z-index:1;font-size:29px;font-weight:900;color:#e3b4ff;
+ text-shadow:0 0 20px #a020ff;
+}
+.project-info{padding:17px}
+.project-info h3{font-size:14px;margin:0 0 8px}
+.project-info p{color:#ad9cbd;font-size:11px;line-height:1.9}
+.tag{font-size:10px;color:#d4a2ff}
+
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.feature{
+ text-align:center;padding:22px 12px;border:1px solid #38204b;
+ background:#10091a;border-radius:14px;
+}
+.feature b{display:block;font-size:25px;color:#cf83ff;margin-bottom:10px}
+.feature strong{font-size:12px}
+.feature p{color:#aa9bb7;font-size:10px;line-height:1.8}
+
+.cta{
+ position:relative;overflow:hidden;display:flex;align-items:center;
+ justify-content:space-between;gap:20px;padding:30px;
+ border:1px solid #9c41d4;border-radius:20px;
+ background:radial-gradient(ellipse at 90% 50%,#8d16d544,transparent 50%),#10071b;
+}
+.cta h2{margin:0 0 8px;font-size:24px}
+.cta p{color:#c3b2d0;font-size:12px;line-height:2}
+
+footer{margin-top:50px;border-top:1px solid #39204a;background:#09050f}
+.footer-inner{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px;padding:40px 0}
+footer h3{font-size:14px;color:#dbacff}
+footer p,footer a{font-size:11px;line-height:2.3;color:#b7a8c4}
+footer a:hover{color:#e5c3ff}
+.footer-links{display:flex;flex-direction:column}
+.copyright{text-align:center;border-top:1px solid #281535;padding:17px;color:#8f7c9f;font-size:10px}
+@media(max-width:900px){
+ .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .service:last-child{grid-column:1/-1}
+ .navlinks{display:none}
+ .menu-btn{display:block}
+ .navlinks.open{
+  display:flex;position:absolute;top:71px;right:4%;left:4%;
+  background:#0d0716;border:1px solid #602786;border-radius:13px;
+  padding:17px;flex-direction:column;align-items:stretch;gap:0;
+ }
+ .navlinks.open a{padding:12px;border-bottom:1px solid #2a1738}
+}
+@media(max-width:650px){
+ .hero{grid-template-columns:1fr;padding:45px 0 60px;gap:15px}
+ .hero-copy{text-align:center}
+ .hero p{margin:15px auto}
+ .actions{justify-content:center}
+ .hero-art{min-height:340px}
+ .emblem{font-size:150px}
+ .portal{width:270px}
+ .art-caption{right:0;left:0}
+ .section{padding:43px 0}
+ .section-head{align-items:start;flex-direction:column}
+ .projects{grid-template-columns:1fr}
+ .project-art{height:170px}
+ .feature-grid{grid-template-columns:repeat(2,1fr)}
+ .cta{align-items:flex-start;flex-direction:column;padding:22px}
+ .footer-inner{grid-template-columns:1fr;gap:15px;padding:30px 0}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+}
 </style>
 </head>
 <body>
 
-<nav>
- <span class="navbrand">VEXORA ✦</span>
- <div style="position:relative">
-  <button class="menu-btn" onclick="toggleMenu()" aria-expanded="false" id="menuButton">☰ منو</button>
-  <div class="menu" id="siteMenu">
-   <a href="#home" onclick="closeMenu()">🏠 صفحه اصلی</a>
-   <a href="#services" onclick="closeMenu()">💻 خدمات و قیمت‌ها</a>
-   <a href="#channel" onclick="closeMenu()">💜 کانال روبیکا</a>
-   <a href="#profile" onclick="closeMenu()">👤 پروفایل و سفارش</a>
+<div class="topbar">
+ <div class="wrap nav">
+  <a href="#home" class="brand">
+   <span class="brandmark">V</span><span class="brandname">VEXORA</span>
+  </a>
+  <button class="menu-btn" id="menuButton" aria-expanded="false" aria-controls="navLinks">☰ منو</button>
+  <nav class="navlinks" id="navLinks">
+   <a href="#home">خانه</a>
+   <a href="#services">خدمات و قیمت‌ها</a>
+   <a href="#portfolio">نمونه‌کارها</a>
+   <a href="#why">چرا VEXORA؟</a>
+   <a href="#contact">ارتباط با ما</a>
+  </nav>
+ </div>
+</div>
+
+<header class="wrap hero" id="home">
+ <div class="hero-copy">
+  <span class="eyebrow">نسل جدید طراحی وب</span>
+  <h1>ایده‌ات رو <span>واقعی کن!</span></h1>
+  <p>از یک ایده ساده تا یک وب‌سایت خاص و مدرن؛
+  VEXORA کمک می‌کنه حضورت در دنیای اینترنت متفاوت باشه.</p>
+  <div class="actions">
+   <a class="btn" href="#services">✦ مشاهده خدمات و قیمت‌ها</a>
+   <a class="btn ghost" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">↗ مشاوره و سفارش</a>
   </div>
  </div>
-</nav>
-
-<header id="home">
- <div class="logo">V</div>
- <h1>VEXORA</h1>
- <p>ایده‌ات رو به یک وب‌سایت تبدیل کن</p>
- <p>طراحی سایت با ظاهر مدرن، خاص و حرفه‌ای</p>
- <a class="btn" href="#services" style="max-width:240px;margin:20px auto">مشاهده خدمات و قیمت‌ها</a>
+ <div class="hero-art" aria-label="نشان نئونی VEXORA">
+  <div class="portal"></div>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="emblem">V</div>
+  <div class="art-caption">
+   <div><strong>✦ طراحی اختصاصی</strong><span>متناسب با ایده تو</span></div>
+   <div><strong>⌘ ظاهر مدرن</strong><span>مناسب موبایل و دسکتاپ</span></div>
+   <div><strong>↗ پشتیبانی</strong><span>ارتباط مستقیم</span></div>
+  </div>
+ </div>
 </header>
 
-<main>
- <section class="intro">
-  <h2>به دنیای VEXORA خوش آمدی</h2>
-  <p class="muted">
-   از سایت شخصی تا سایت کسب‌وکار و گیمینگ؛
-   پروژه موردنظرت رو انتخاب کن و برای سفارش پیام بده.
+<main class="wrap">
+ <section class="section" id="services">
+  <div class="section-head">
+   <div><span class="kicker">WHAT WE CREATE</span><h2>خدمات <span class="neon">VEXORA</span></h2></div>
+   <p>هر ایده‌ای برای اینترنت داری، از اینجا شروع کن.</p>
+  </div>
+  <div class="services">
+   <article class="service">
+    <div class="service-icon">◇</div><h3>سایت شخصی</h3>
+    <p>معرفی خودت، رزومه، نمونه‌کارها و راه‌های ارتباطی.</p>
+    <div class="price">شروع از ۱۵۰ هزار تومان<small>قیمت پیشنهادی اولیه</small></div>
+    <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت ↗</a>
+   </article>
+   <article class="service">
+    <div class="service-icon">▦</div><h3>سایت کسب‌وکار</h3>
+    <p>معرفی برند، خدمات، اطلاعات تماس و بخش‌های اختصاصی.</p>
+    <div class="price">شروع از ۳۰۰ هزار تومان<small>قیمت پیشنهادی اولیه</small></div>
+    <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت ↗</a>
+   </article>
+   <article class="service">
+    <div class="service-icon">🛒</div><h3>سایت فروشگاهی</h3>
+    <p>صفحه‌های محصولات و طراحی تجربه خرید متناسب با پروژه.</p>
+    <div class="price">شروع از ۵۰۰ هزار تومان<small>قیمت پیشنهادی اولیه</small></div>
+    <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت ↗</a>
+   </article>
+   <article class="service">
+    <div class="service-icon">🎮</div><h3>سایت گیمینگ</h3>
+    <p>معرفی سرور ماینکرفت، گیم‌مودها، قوانین و امکانات بازی.</p>
+    <div class="price">شروع از ۲۵۰ هزار تومان<small>قیمت پیشنهادی اولیه</small></div>
+    <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت ↗</a>
+   </article>
+   <article class="service">
+    <div class="service-icon">✧</div><h3>طراحی اختصاصی</h3>
+    <p>برای ایده‌هایی که به طراحی و امکانات سفارشی نیاز دارند.</p>
+    <div class="price">قیمت توافقی<small>پس از بررسی درخواست</small></div>
+    <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">مشاوره و سفارش ↗</a>
+   </article>
+  </div>
+  <p style="color:#9d8aaa;font-size:11px;line-height:2;margin-top:18px">
+   قیمت‌ها نمونه اولیه هستند و باید پیش از انتشار نهایی با تعرفه واقعی خدماتت هماهنگ شوند.
+   امکانات فروشگاه آنلاین یا پرداخت اینترنتی ممکن است به تنظیمات و سرویس‌های جداگانه نیاز داشته باشند.
   </p>
  </section>
 
- <section class="card" id="services">
-  <h2>💜 خدمات و قیمت‌ها</h2>
-  <p class="muted">قیمت‌های زیر پیشنهادی و شروع قیمت هستند؛
-  هزینه نهایی پس از بررسی امکانات مشخص می‌شود.</p>
-
-  <div class="service">
-   <h3>🌐 سایت شخصی</h3>
-   <p class="muted">معرفی خودت، بیوگرافی و نمونه‌کارها</p>
-   <div class="price">شروع از ۱۵۰ هزار تومان</div>
-   <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت شخصی</a>
+ <section class="section" id="portfolio">
+  <div class="section-head">
+   <div><span class="kicker">SELECTED WORK</span><h2>نمونه‌کارهای <span class="neon">ما</span></h2></div>
+   <p>ایده‌ها می‌تونن به تجربه‌های دیجیتال تبدیل بشن.</p>
   </div>
-
-  <div class="service">
-   <h3>🏢 سایت کسب‌وکار</h3>
-   <p class="muted">معرفی خدمات، برند و راه‌های ارتباطی</p>
-   <div class="price">شروع از ۳۰۰ هزار تومان</div>
-   <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت کسب‌وکار</a>
-  </div>
-
-  <div class="service">
-   <h3>🛒 سایت فروشگاهی</h3>
-   <p class="muted">معرفی محصولات و طراحی صفحات فروش</p>
-   <div class="price">شروع از ۵۰۰ هزار تومان</div>
-   <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت فروشگاهی</a>
-  </div>
-
-  <div class="service">
-   <h3>🎮 سایت گیمینگ و ماینکرفت</h3>
-   <p class="muted">معرفی سرور، گیم‌مودها، قوانین و امکانات</p>
-   <div class="price">شروع از ۲۵۰ هزار تومان</div>
-   <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">سفارش سایت گیمینگ</a>
-  </div>
-
-  <div class="service">
-   <h3>✨ طراحی اختصاصی</h3>
-   <p class="muted">طراحی متناسب با ایده و نیازهای پروژه تو</p>
-   <div class="price">قیمت توافقی</div>
-   <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">مشاوره و ثبت سفارش</a>
+  <div class="showcase">
+   <div class="projects">
+    <article class="project">
+     <div class="project-art"><span>DILCRAFT</span></div>
+     <div class="project-info"><h3>پروژه گیمینگ</h3><p>مناسب معرفی سرور و جامعه بازیکنان.</p><span class="tag">GAMING WEBSITE</span></div>
+    </article>
+    <article class="project">
+     <div class="project-art"><span>VEXORA</span></div>
+     <div class="project-info"><h3>وب‌سایت شرکتی</h3><p>معرفی خدمات طراحی سایت با هویت بصری اختصاصی.</p><span class="tag">BUSINESS WEBSITE</span></div>
+    </article>
+    <article class="project">
+     <div class="project-art"><span>NOVA SHOP</span></div>
+     <div class="project-info"><h3>فروشگاه نمونه</h3><p>طرح نمایشی برای نمایش محصولات و دسته‌بندی‌ها.</p><span class="tag">STORE CONCEPT</span></div>
+    </article>
+   </div>
+   <p style="font-size:11px;color:#a998b9;line-height:2">
+    این موارد فعلاً طرح‌های نمایشی هستند، نه لینک پروژه‌های تأییدشده. پس از ساخت پروژه‌های واقعی، تصاویر و لینک‌های آن‌ها را جایگزین کن.
+   </p>
   </div>
  </section>
 
- <section class="card" id="channel">
-  <div class="profile-row">
-   <div class="mini-logo">V</div>
-   <div>
-    <h2>کانال رسمی VEXORA</h2>
-    <div class="username">@Vexora_WebSite</div>
-   </div>
+ <section class="section" id="why">
+  <div class="section-head">
+   <div><span class="kicker">WHY VEXORA</span><h2>چرا ما رو انتخاب کنی؟</h2></div>
   </div>
-  <p class="muted">برای دنبال‌کردن اخبار، نمونه‌کارها و خدمات به کانال ما سر بزن.</p>
-  <a class="btn" href="https://rubika.ir/Vexora_WebSite" target="_blank" rel="noopener">ورود به کانال روبیکا</a>
+  <div class="feature-grid">
+   <div class="feature"><b>✧</b><strong>طراحی اختصاصی</strong><p>ظاهر متناسب با هویت پروژه تو.</p></div>
+   <div class="feature"><b>⌘</b><strong>سازگار با موبایل</strong><p>طراحی واکنش‌گرا برای صفحه‌های مختلف.</p></div>
+   <div class="feature"><b>↗</b><strong>ارتباط مستقیم</strong><p>هماهنگی جزئیات سفارش با طراح.</p></div>
+   <div class="feature"><b>◇</b><strong>قیمت شفاف</strong><p>توافق بر سر هزینه پیش از شروع پروژه.</p></div>
+  </div>
  </section>
 
- <section class="card" id="profile">
-  <div class="profile-row">
-   <div class="mini-logo">V</div>
-   <div>
-    <h2>پروفایل ثبت سفارش</h2>
-    <div class="username">@BDFJ_Site</div>
+ <section class="section">
+  <div class="cta">
+   <div><span class="kicker">LET'S BUILD SOMETHING</span>
+    <h2>آماده‌ای ایده‌ات رو بسازیم؟</h2>
+    <p>نوع سایت و امکانات موردنظرت رو بگو تا درباره هزینه و مراحل کار صحبت کنیم.</p>
    </div>
+   <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">شروع سفارش در روبیکا ↗</a>
   </div>
-  <p class="muted">برای ثبت سفارش، پرسیدن قیمت یا هماهنگی امکانات سایت مستقیماً پیام بده.</p>
-  <a class="btn" href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">ثبت سفارش در روبیکا</a>
  </section>
 </main>
 
-<footer>
- <div class="logo" style="width:48px;height:48px;font-size:34px;border-radius:13px">V</div>
- <strong>VEXORA</strong><br>
- طراحی سایت با خلاقیت 💜<br>
- © VEXORA
+<footer id="contact">
+ <div class="wrap footer-inner">
+  <div>
+   <a class="brand" href="#home"><span class="brandmark">V</span><span class="brandname">VEXORA</span></a>
+   <p>Your Vision / Our Code<br>ایده‌ات، شروع یک تجربه جدید.</p>
+  </div>
+  <div>
+   <h3>لینک‌های سریع</h3>
+   <div class="footer-links">
+    <a href="#services">خدمات و قیمت‌ها</a>
+    <a href="#portfolio">نمونه‌کارها</a>
+    <a href="#why">چرا VEXORA؟</a>
+   </div>
+  </div>
+  <div>
+   <h3>ارتباط با VEXORA</h3>
+   <div class="footer-links">
+    <a href="https://rubika.ir/Vexora_WebSite" target="_blank" rel="noopener">💜 کانال @Vexora_WebSite</a>
+    <a href="https://rubika.ir/BDFJ_Site" target="_blank" rel="noopener">✉ سفارش و ارتباط @BDFJ_Site</a>
+   </div>
+  </div>
+ </div>
+ <div class="copyright">VEXORA © 2026 — طراحی با خلاقیت</div>
 </footer>
 
 <script>
-const menu = document.getElementById('siteMenu');
 const menuButton = document.getElementById('menuButton');
+const navLinks = document.getElementById('navLinks');
 
-function toggleMenu(){
- const isOpen = menu.classList.toggle('open');
- menuButton.setAttribute('aria-expanded', String(isOpen));
-}
-function closeMenu(){
- menu.classList.remove('open');
- menuButton.setAttribute('aria-expanded','false');
-}
+menuButton.addEventListener('click', function(){
+ const open = navLinks.classList.toggle('open');
+ menuButton.setAttribute('aria-expanded', String(open));
+});
+navLinks.querySelectorAll('a').forEach(function(link){
+ link.addEventListener('click', function(){
+  navLinks.classList.remove('open');
+  menuButton.setAttribute('aria-expanded','false');
+ });
+});
 document.addEventListener('click', function(event){
- if(!event.target.closest('nav')) closeMenu();
+ if(!event.target.closest('.nav')){
+  navLinks.classList.remove('open');
+  menuButton.setAttribute('aria-expanded','false');
+ }
 });
 </script>
-
 </body>
 </html>
