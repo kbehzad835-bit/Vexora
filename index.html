@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090710">
+  <meta name="description" content="VEXORA | طراحی و ساخت انواع وب‌سایت مدرن">
+  <title>VEXORA | خلق ایده‌های دیجیتال</title>
+  <style>
+    :root {
+      --bg: #090710;
+      --panel: #151020;
+      --purple: #a855f7;
+      --pink: #d946ef;
+      --text: #f8f5ff;
+      --muted: #b7aec9;
+      --border: #30213f;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, #34134c 0%, transparent 48%),
+        var(--bg);
+      color: var(--text);
+      font-family: system-ui, Arial, sans-serif;
+      line-height: 1.8;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #090710eF;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
+      color: #d8b4fe;
+    }
+    nav { display: flex; align-items: center; gap: 18px; }
+    nav a { font-size: 14px; color: var(--muted); }
+    nav a:hover { color: white; }
+    .lang {
+      background: #20142d;
+      color: white;
+      border: 1px solid #69428a;
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .hero { text-align: center; padding: 95px 0 80px; }
+    .tag {
+      display: inline-block;
+      color: #e9d5ff;
+      border: 1px solid #693f89;
+      background: #281339;
+      padding: 5px 15px;
+      border-radius: 40px;
+      font-size: 13px;
+    }
+    h1 {
+      font-size: clamp(39px, 8vw, 75px);
+      line-height: 1.25;
+      margin: 22px 0;
+      letter-spacing: -2px;
+    }
+    .glow {
+      background: linear-gradient(90deg, #c084fc, #e879f9, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-weight: 750;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .primary {
+      background: linear-gradient(110deg, #9333ea, #c026d3);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 0 25px #a855f733;
+    }
+    .secondary { background: #171020; }
+    section { padding: 55px 0; }
+    .section-head { text-align: center; margin-bottom: 32px; }
+    .section-head h2 { font-size: 32px; margin-bottom: 6px; }
+    .section-head p { color: var(--muted); margin-top: 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+    .service {
+      padding: 24px;
+      background: linear-gradient(145deg, #191126, #100c19);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      transition: .2s;
+    }
+    .service:hover {
+      border-color: #9953cf;
+      transform: translateY(-4px);
+    }
+    .emoji { font-size: 30px; }
+    .service h3 { margin: 10px 0; font-size: 20px; }
+    .service p { color: var(--muted); font-size: 14px; }
+    .about {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: #120d1b;
+      padding: 28px;
+      text-align: center;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+    .step {
+      background: #1b1226;
+      border-radius: 14px;
+      padding: 17px;
+    }
+    .number { color: #d8b4fe; font-weight: 900; font-size: 23px; }
+    .contact {
+      text-align: center;
+      background: radial-gradient(ellipse at center, #301443, transparent 75%);
+      padding: 60px 15px;
+      border-radius: 24px;
+    }
+    .contact p { color: var(--muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 40px;
+    }
+    @media(max-width: 700px) {
+      .nav { flex-wrap: wrap; padding: 12px 0; }
+      nav { order: 3; width: 100%; justify-content: center; gap: 15px; }
+      nav a { font-size: 12px; }
+      .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .hero { padding: 65px 0; }
+      .section-head h2 { font-size: 27px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">VEXORA<span class="glow">.</span></a>
+      <nav>
+        <a href="#home" data-fa="خانه" data-en="Home">خانه</a>
+        <a href="#services" data-fa="خدمات" data-en="Services">خدمات</a>
+        <a href="#about" data-fa="درباره ما" data-en="About">درباره ما</a>
+        <a href="#contact" data-fa="سفارش سایت" data-en="Order">سفارش سایت</a>
+      </nav>
+      <button class="lang" id="langBtn" type="button">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <span class="tag" data-fa="استودیو طراحی وب VEXORA"
+        data-en="VEXORA DIGITAL WEB STUDIO">استودیو طراحی وب VEXORA</span>
+
+      <h1 data-fa-html="ایده‌ات را به<br><span class='glow'>دنیای دیجیتال</span> بیاور"
+        data-en-html="Bring Your Ideas<br>Into The <span class='glow'>Digital World</span>">
+        ایده‌ات را به<br><span class="glow">دنیای دیجیتال</span> بیاور
+      </h1>
+
+      <p data-fa="ما به تو کمک می‌کنیم ایده‌ات را به یک وب‌سایت مدرن، زیبا و متناسب با نیازت تبدیل کنی."
+        data-en="We help turn your ideas into modern, beautiful websites built around your needs.">
+        ما به تو کمک می‌کنیم ایده‌ات را به یک وب‌سایت مدرن، زیبا و متناسب با نیازت تبدیل کنی.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#contact"
+          data-fa="شروع سفارش ←" data-en="Start Your Project →">شروع سفارش ←</a>
+        <a class="btn secondary" href="#services"
+          data-fa="مشاهده خدمات" data-en="Explore Services">مشاهده خدمات</a>
+      </div>
+    </section>
+
+    <section class="container" id="services">
+      <div class="section-head">
+        <h2 data-fa="خدمات ما" data-en="Our Services">خدمات ما</h2>
+        <p data-fa="برای ایده‌های کوچک تا پروژه‌های بزرگ"
+          data-en="From simple ideas to ambitious projects">برای ایده‌های کوچک تا پروژه‌های بزرگ</p>
+      </div>
+
+      <div class="grid">
+        <article class="service">
+          <div class="emoji">🌐</div>
+          <h3 data-fa="طراحی سایت اختصاصی" data-en="Custom Websites">طراحی سایت اختصاصی</h3>
+          <p data-fa="سایت شخصی، شرکتی، نمونه‌کار و معرفی کسب‌وکار با طراحی متناسب با برند تو."
+            data-en="Personal, business, portfolio and brand websites tailored to your identity.">
+            سایت شخصی، شرکتی، نمونه‌کار و معرفی کسب‌وکار با طراحی متناسب با برند تو.
+          </p>
+        </article>
+        <article class="service">
+          <div class="emoji">🛍️</div>
+          <h3 data-fa="فروشگاه اینترنتی" data-en="Online Stores">فروشگاه اینترنتی</h3>
+          <p data-fa="طراحی صفحه محصولات، معرفی کالاها و ساخت تجربه خرید ساده و جذاب."
+            data-en="Product pages and a clean, engaging shopping experience.">
+            طراحی صفحه محصولات، معرفی کالاها و ساخت تجربه خرید ساده و جذاب.
+          </p>
+        </article>
+        <article class="service">
+          <div class="emoji">🎮</div>
+          <h3 data-fa="سایت گیمینگ" data-en="Gaming Websites">سایت گیمینگ</h3>
+          <p data-fa="سایت سرور ماینکرفت، معرفی گیم‌مودها، صفحه کامیونیتی و سایت گیمینگ."
+            data-en="Minecraft server sites, game-mode showcases and gaming community pages.">
+            سایت سرور ماینکرفت، معرفی گیم‌مودها، صفحه کامیونیتی و سایت گیمینگ.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <div class="about">
+        <div class="section-head">
+          <h2 data-fa="چرا VEXORA؟" data-en="Why VEXORA?">چرا VEXORA؟</h2>
+          <p data-fa="طراحی جذاب، ارتباط روشن و توجه به ایده تو."
+            data-en="Creative design, clear communication and focus on your idea.">
+            طراحی جذاب، ارتباط روشن و توجه به ایده تو.
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="number">01</div>
+            <strong data-fa="ایده‌ات را بگو" data-en="Share Your Idea">ایده‌ات را بگو</strong>
+            <p data-fa="درباره سایت دلخواهت صحبت می‌کنیم."
+              data-en="Tell us what kind of website you need.">درباره سایت دلخواهت صحبت می‌کنیم.</p>
+          </div>
+          <div class="step">
+            <div class="number">02</div>
+            <strong data-fa="طراحی و ساخت" data-en="Design & Build">طراحی و ساخت</strong>
+            <p data-fa="طرح مناسب پروژه‌ات را آماده می‌کنیم."
+              data-en="We prepare a design for your project.">طرح مناسب پروژه‌ات را آماده می‌کنیم.</p>
+          </div>
+          <div class="step">
+            <div class="number">03</div>
+            <strong data-fa="تحویل پروژه" data-en="Project Delivery">تحویل پروژه</strong>
+            <p data-fa="پس از هماهنگی، سایت آماده را تحویل می‌گیری."
+              data-en="Receive your completed website after we agree on the details.">
+              پس از هماهنگی، سایت آماده را تحویل می‌گیری.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" id="contact">
+      <div class="contact">
+        <span class="tag" data-fa="پروژه بعدی تو؟" data-en="Your Next Project?">پروژه بعدی تو؟</span>
+        <h2 data-fa="بیا ایده‌ات را بسازیم" data-en="Let's Build Your Idea">بیا ایده‌ات را بسازیم</h2>
+        <p data-fa="برای صحبت درباره پروژه و ثبت سفارش از طریق روبیکا پیام بده."
+          data-en="Message us on Rubika to discuss your project and place an order.">
+          برای صحبت درباره پروژه و ثبت سفارش از طریق روبیکا پیام بده.
+        </p>
+        <!-- آدرس روبیکای خودت را در لینک زیر جایگزین کن -->
+        <a class="btn primary" id="rubikaBtn"
+          href="https://rubika.ir/"
+          target="_blank" rel="noopener noreferrer"
+          data-fa="سفارش از روبیکا ↗" data-en="Order on Rubika ↗">
+          سفارش از روبیکا ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="logo">VEXORA.</div>
+      <p data-fa="خلق ایده‌های دیجیتال، با طراحی متفاوت."
+        data-en="Creating digital ideas with a different perspective.">
+        خلق ایده‌های دیجیتال، با طراحی متفاوت.
+      </p>
+      <span>© <span id="year"></span> VEXORA</span>
+    </div>
+  </footer>
+
+  <script>
+    let language = "fa";
+    const langBtn = document.getElementById("langBtn");
+
+    function setLanguage(next) {
+      language = next;
+      document.documentElement.lang = next;
+      document.documentElement.dir = next === "fa" ? "rtl" : "ltr";
+
+      document.querySelectorAll("[data-fa][data-en]").forEach(el => {
+        el.textContent = el.dataset[next];
+      });
+
+      document.querySelectorAll("[data-fa-html][data-en-html]").forEach(el => {
+        el.innerHTML = el.dataset[next + "Html"];
+      });
+
+      langBtn.textContent = next === "fa" ? "EN" : "فا";
+      document.title = next === "fa"
+        ? "VEXORA | خلق ایده‌های دیجیتال"
+        : "VEXORA | Build Your Digital Ideas";
+    }
+
+    langBtn.addEventListener("click", () => {
+      setLanguage(language === "fa" ? "en" : "fa");
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    setLanguage("fa");
+  </script>
+</body>
+        </html>
